@@ -1,0 +1,85 @@
+import turtle
+import random
+import math
+screen = turtle.Screen()
+screen.title("City of the Future - Ukraine 2150")
+screen.bgcolor("#050a30")  # глибоке космічне небо
+screen.setup(width=1.0, height=1.0)
+t = turtle.Turtle()
+t.hideturtle()
+t.speed(0)
+def draw_rectangle(x, y, w, h, color):
+    t.penup()
+    t.goto(x, y)
+    t.pendown()
+    t.fillcolor(color)
+    t.begin_fill()
+    for _ in range(2):
+        t.forward(w)
+        t.left(90)
+        t.forward(h)
+        t.left(90)
+    t.end_fill()
+def draw_circle(x, y, r, color):
+    t.penup()
+    t.goto(x, y - r)
+    t.pendown()
+    t.fillcolor(color)
+    t.begin_fill()
+    t.circle(r)
+    t.end_fill()
+def draw_stars():
+    for _ in range(60):
+        x = random.randint(-400, 400)
+        y = random.randint(0, 300)
+        t.penup()
+        t.goto(x, y)
+        t.dot(random.randint(2, 4), random.choice(["#ffffff", "#b2ffff", "#f8f8ff"]))
+def draw_river():
+    draw_rectangle(-500, -250, 1000, 80, "#0077be")
+def draw_city():
+    for i in range(-400, 400, 70):
+        h = random.randint(100, 220)
+        c = random.choice(["#1ac6ff", "#29e6a7", "#ffd700"])
+        draw_rectangle(i, -170, 50, h, c)
+        for _ in range(6):
+            wx = i + random.randint(5, 35)
+            wy = -150 + random.randint(0, h - 20)
+            draw_rectangle(wx, wy, 6, 8, "#fffacd")
+def draw_floating_platform(x, y):
+    draw_rectangle(x, y, 120, 20, "#39ff14")
+    for i in range(3):
+        draw_rectangle(x + 20 + i * 25, y + 20, 15, random.randint(50, 80), "#00bfff")
+def draw_energy_core(x, y):
+    draw_circle(x, y, 30, "#00ffff")
+    draw_circle(x, y, 15, "#ffffff")
+    draw_rectangle(x - 40, y - 10, 80, 20, "#00ffcc")
+def draw_flag(x, y):
+    draw_rectangle(x, y, 60, 10, "#0057b7")  # синій
+    draw_rectangle(x, y - 10, 60, 10, "#ffd700")  # жовтий
+drones = [[random.randint(-350, 350), random.randint(100, 300), random.uniform(0.5, 1.5)] for _ in range(10)]
+
+def draw_drone(x, y):
+    draw_circle(x, y, 5, "#f5ff7d")
+    t.penup()
+    t.goto(x + 15, y + 5)
+    t.dot(3, "#ffffff")
+def move_drones():
+    t.clear()
+    draw_stars()
+    draw_river()
+    draw_city()
+    draw_energy_core(0, -100)
+    draw_floating_platform(-250, 80)
+    draw_floating_platform(150, 100)
+    draw_flag(330, 200)
+    for d in drones:
+        d[0] += math.sin(d[1] / 30) * 3  
+        d[1] += random.choice([-1, 1]) * d[2]
+        if d[1] < 100:  
+            d[1] = 300
+        draw_drone(d[0], d[1])
+    screen.ontimer(move_drones, 100)
+draw_stars()
+move_drones()
+turtle.done()
