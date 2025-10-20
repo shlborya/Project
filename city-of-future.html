@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Місто Майбутнього</title>
+  <style>
+    /* ======== Загальні стилі ======== */
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background-color: #0a0a1a;
+      color: #e0e0ff;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #0ff 0%, #8000ff 100%);
+      color: black;
+    }
+
+    nav {
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav a {
+      color: #0ff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff00ff;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      color: #0ff;
+      margin-bottom: 20px;
+    }
+
+    p {
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    /* ======== Галерея ======== */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    figure {
+      margin: 0;
+      text-align: center;
+    }
+
+    figcaption {
+      font-size: 0.9em;
+      color: #bbb;
+    }
+
+    /* ======== Кнопка вгору ======== */
+    #toTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #0ff;
+      color: #000;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      transition: background-color 0.3s;
+    }
+
+    #toTop:hover {
+      background-color: #ff00ff;
+      color: white;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #111;
+      color: #888;
+    }
+
+    /* ======== Адаптивність ======== */
+    @media (max-width: 600px) {
+      nav a {
+        margin: 0 8px;
+        font-size: 14px;
+      }
+      header {
+        padding: 50px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header id="home">
+    <h1>Місто Майбутнього</h1>
+    <p>Погляд у 2125 рік — де транспорт літає, архітектура дихає, а природа відновлюється.</p>
+  </header>
+
+  <nav>
+    <a href="#transport">Транспорт</a>
+    <a href="#architecture">Архітектура</a>
+    <a href="#ecology">Екологія</a>
+    <a href="#gallery">Галерея</a>
+    <a href="#ai">Як я використовував ШІ</a>
+  </nav>
+
+  <main>
+    <section id="transport">
+      <h2>Транспорт майбутнього</h2>
+      <p>Вулиці Львова у 2125 році стали небом для безпілотних капсул. Електромагнітні дороги замінили асфальт, а енергія добувається з руху самих машин. Транспорт працює на спільному штучному інтелекті, який оптимізує маршрути без заторів.</p>
+    </section>
+
+    <section id="architecture">
+      <h2>Архітектура, що живе</h2>
+      <p>Будівлі Києва ростуть, як дерева: фасади вкриті мохом і сонячними панелями, а дахові сади очищують повітря. Архітектура адаптується до погоди, а матеріали — самовідновні, створені з нанополімерів на основі органічних відходів.</p>
+    </section>
+
+    <section id="ecology">
+      <h2>Екологія та гармонія</h2>
+      <p>Міста України стали повністю енергетично автономними. Використовуються повітряні турбіни та фотонні поля. Люди живуть у симбіозі з природою, а кожна будівля — це мініатюрний біосвіт.</p>
+    </section>
+
+    <section id="gallery">
+      <h2>Міні-галерея</h2>
+      <div class="gallery">
+        <figure>
+          <img src="https://images.unsplash.com/photo-1500336624523-d727130c3328" alt="Неонова архітектура майбутнього">
+          <figcaption>Photo by Marc-Olivier Jodoin / Unsplash</figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952" alt="Літаючий транспорт">
+          <figcaption>Photo by NASA / Unsplash</figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde" alt="Еко-енергетичне місто">
+          <figcaption>Photo by Patrick Tomasso / Unsplash</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="ai">
+      <h2>Як я використовував ШІ</h2>
+      <p><strong>Мій промт:</strong> «Створи HTML-сторінку про Місто Майбутнього у стилі неон-future з секціями про транспорт, архітектуру, екологію, інтерактивом і адаптивним дизайном».</p>
+      <p>Я використав [gptonline.ai](https://gptonline.ai/) для генерації базового коду та редагував його вручну для власного бачення дизайну.</p>
+    </section>
+  </main>
+
+  <button id="toTop" title="Нагору">↑</button>
+
+  <footer>
+    <p>© 2025 Місто Майбутнього. Всі права захищено.</p>
+  </footer>
+
+  <script>
+    // Показувати кнопку при скролі
+    const toTop = document.getElementById('toTop');
+    window.onscroll = function() {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        toTop.style.display = "block";
+      } else {
+        toTop.style.display = "none";
+      }
+    };
+
+    // Плавне повернення нагору
+    toTop.onclick = function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+  </script>
+</body>
+</html>
